@@ -19,12 +19,22 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(mySocket.getInputStream())); //ascolto (ricevere)
         DataOutputStream out = new DataOutputStream(mySocket.getOutputStream()); //parla (invia)
 
-        String stringaRicevuta = in.readLine(); //in attesa della stringa del client 
-        System.out.println("La stringa ricevuta: " + stringaRicevuta); //stringa ricevuta dal client e stampata
+        String stringaRicevuta = "a";
+        Boolean carattereSpeciale = false;
+        for(int i=0; i<stringaRicevuta.length(); i++){
+            if(stringaRicevuta.){
+                carattereSpeciale = true;
+            }
+        }
+        while(carattereSpeciale == false ){
+            stringaRicevuta = in.readLine(); //in attesa della stringa del client 
 
-        String stringaMaiuscola = stringaRicevuta.toUpperCase();//stringa in maiuscolo
-        out.writeBytes(stringaMaiuscola + '\n'); //invio della stringa al client
+            System.out.println("La stringa ricevuta: " + stringaRicevuta); //stringa ricevuta dal client e stampata
 
+            String stringaMaiuscola = stringaRicevuta.toUpperCase();//stringa in maiuscolo
+            out.writeBytes(stringaMaiuscola + '\n'); //invio della stringa al client
+        }
+         
         mySocket.close(); //chiusura
         ss.close();
     }
